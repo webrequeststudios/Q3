@@ -78,7 +78,7 @@ export default function Home() {
               We also supply and deliver construction materials to site, and carry
               out maintenance work on buildings, roads and civil infrastructure.
             </p>
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-9 btn-pair">
               <Link to="/services" className="btn btn-primary">
                 Our Services
               </Link>

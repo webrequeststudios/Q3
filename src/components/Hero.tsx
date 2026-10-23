@@ -92,7 +92,7 @@ export default function Hero() {
                   <p className="animate-fade-up [animation-delay:120ms] mt-5 max-w-lg text-lg text-white/90">
                     {s.text}
                   </p>
-                  <div className="animate-fade-up [animation-delay:240ms] mt-9 flex flex-wrap gap-4">
+                  <div className="animate-fade-up [animation-delay:240ms] mt-9 btn-pair">
                     <Link to="/contact" className="btn btn-primary">
                       Request a Quote
                     </Link>

@@ -80,7 +80,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 py-6 flex flex-col sm:flex-row gap-2 justify-between text-sm">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 py-6 flex flex-col sm:flex-row items-center gap-2 justify-between text-sm text-center sm:text-left">
           <p>© {new Date().getFullYear()} {company.name}. All rights reserved.</p>
           <p>{company.tagline}</p>
         </div>

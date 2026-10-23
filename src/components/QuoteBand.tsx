@@ -27,7 +27,7 @@ export default function QuoteBand({
         <h2 className="text-3xl sm:text-[2.5rem] font-semibold text-white">{title}</h2>
         <span className="title-bar title-bar-center" aria-hidden="true" />
         <p className="mt-6 text-white/85 text-lg">{body}</p>
-        <div className="mt-9 flex flex-wrap justify-center gap-4">
+        <div className="mt-9 btn-pair sm:justify-center">
           <Link to="/contact" className="btn btn-primary">
             Request a Quote
           </Link>
