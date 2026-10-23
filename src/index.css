@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand blue — one colour used everywhere on the site (the logo keeps
+     its own colours). `brand-dark` is the button hover. */
+  --color-brand: #0052CC;
+  --color-brand-dark: #003E9E;
+  --color-brand-bright: #0052CC;
+  --color-brand-light: #0052CC;
+  /* Errors and invalid form fields */
+  --color-danger: #B42318;
+  /* Headings and dark sections */
+  --color-ink: #212429;
+  /* Footer */
+  --color-night: #191A1D;
+  /* Body text on light backgrounds */
+  --color-body: #5F6268;
+  /* Secondary text on dark backgrounds */
+  --color-muted: #B8BAC0;
+  /* Alternate light section background and hairlines */
+  --color-surface: #F5F5F6;
+  --color-line: #E3E4E7;
+
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #fff;
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.75;
+    caret-color: var(--color-brand);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    color: var(--color-ink);
+    line-height: 1.2;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Stop the page scrolling behind the photo viewer */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-brand);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 3px;
+    padding: 1rem 1.875rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+    transition: background-color 150ms, border-color 150ms, color 150ms, transform 150ms var(--ease-out-expo);
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+  .btn-primary {
+    background-color: var(--color-brand);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-brand-dark);
+  }
+  /* White outline, for use over photos and dark sections */
+  .btn-outline-light {
+    border: 1px solid rgb(255 255 255 / 0.8);
+    color: #fff;
+  }
+  .btn-outline-light:hover {
+    background-color: #fff;
+    color: var(--color-ink);
+  }
+  .btn-dark {
+    background-color: var(--color-ink);
+    color: #fff;
+  }
+  .btn-dark:hover {
+    background-color: #000;
+  }
+
+  /* Section heading with the short blue bar underneath */
+  .section-title {
+    font-size: 1.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+  @media (min-width: 640px) {
+    .section-title {
+      font-size: 2.375rem;
+    }
+  }
+  .title-bar {
+    display: block;
+    width: 56px;
+    height: 3px;
+    background-color: var(--color-brand-bright);
+    margin-top: 1rem;
+  }
+  .title-bar-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Form fields */
+  .field {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #CFD1D6;
+    border-radius: 3px;
+    padding: 0.75rem 0.875rem;
+    color: var(--color-ink);
+    transition: border-color 150ms, box-shadow 150ms;
+  }
+  .field::placeholder {
+    color: #6B6E74;
+  }
+  .field:hover {
+    border-color: #A9ACB2;
+  }
+  .field:focus-visible {
+    outline: none;
+    border-color: var(--color-brand);
+    box-shadow: 0 0 0 3px rgb(0 82 204 / 0.18);
+  }
+  .field:user-invalid {
+    border-color: var(--color-danger);
+  }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fade-up 0.8s var(--ease-out-expo) both;
+}
